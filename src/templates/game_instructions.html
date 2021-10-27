@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Instructions</title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+
+<body class="bg-nav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="/">Beer Game</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="c-container">
+        <div class="center">
+            <h1>
+                Complete Instructions for Instructor and Player
+            </h1>
+        </div>
+        
+    </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                     <h4>Rules for Instructor</h4>
+                    <p>
+                        The instructor acts as as an administrator of the game.<br>
+                        • One should be able to modify the input parameter, record every players
+                        individual performance and see the summary of the game results.<br>
+                        • The instructor must be able to set the initial values for the following
+                            parameters prior to the start of each game.<br>
+                            1. Number of rounds, weeks per game<br>
+                            2. Time delay for both upstream and downstream<br>
+                            3. Initial number of items in inventory of each stakeholder<br>
+                            4. The backlog and the cost of each item in stock<br>
+                            5. The amount of information available to each stakeholder can view
+                            in the game<br>
+                            • The instructor must be able to supervise the current state of each game
+                            during a session.<br>
+                            • The instructor must be able to change the type of demand for the players.<br>
+                            • The instructor and user must be able to view a plot showing the bullwhip
+                            e↵ect and player demand versus demand generated.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+         <div class="card">
+                <div class="card-body">
+                    <h4>Rules for Player</h4>
+                    <p>
+
+                        Once the lobby and game setting are initialised by the instructor players can
+join the lobby.<br>
+• A player should be able to decide on his/her role be able to choose a role
+of Retailer, Wholesaler, Distributor, or Factory.<br>
+• A player shall be able to place orders to the upstream supply chain.<br>
+• The players are not allowed to discuss or talk about their own strategies
+with each other. Players can only view the following:<br>
+1. The backlog of orders that couldn’t be fulfilled.<br>
+2. Incoming orders from the upstream<br>
+3. Number of stocks in the inventory<br>
+4. Updated information after the orders have been placed.<br>
+There are 24 rounds of the game and in each round the player performs the
+following 4 steps.<br>
+1. Check Deliveries Check the quantity of beer units that are delivered
+to the downstream supplier in the supply chain within some time delay.<br>
+2. Check Incoming Orders Check the quantity of beer units that the
+downstream supplier has ordered within some time delay.<br>
+3. Deliver Beer To satisfy the consumer demand, deliver as many units
+as possible.<br>
+4. Place Out going Order This is the decision-making process where
+the number of units of beer needed are decided to keep the inventory
+going and ensure that he has sucient units to meet future demands.
+The decision is based on 3 factors namely backlog, consumer needs, and
+current stock.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

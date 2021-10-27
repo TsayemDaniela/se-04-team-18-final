@@ -1,0 +1,151 @@
+.bg-nav{
+    background: #f1f1f1;  /* fallback for old browsers */
+    min-height: 100vh;
+}
+
+.c-container {
+	width: calc(100% - 40px);
+	margin: 120px auto;
+	max-width: 1500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.c-options {
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+}
+
+.display-7 {
+	font-size: 2rem;
+	font-weight: 300;
+	max-width: 1200px;
+}
+
+.c-btn-group {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: center;
+}
+
+.c-btn-group .btn {
+	margin-right: 25px;
+	padding: 10px 50px;
+	font-size: 1.2rem;
+
+}
+
+.center {
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-body {
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+.rules {
+	font-size: 1.2rem;
+}
+
+.mt-15 {
+	margin-top: 15px;
+}
+
+.mt-25 {
+	margin-top: 25px;
+}
+
+.mt-50 {
+	margin-top: 50px;
+}
+
+.mt-100 {
+	margin-top: 50px;
+}
+
+.c-table-container {
+	width: calc(100% - 40px);
+	background-color: #fff;
+	padding: 20px;
+	box-sizing: border-box;
+	margin: auto;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.c-table-student {
+	max-width: 1200px;
+}
+
+.c-top-container {
+	width: calc(90% - 40px);
+	margin: 40px auto;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.c-bot-container {
+	width: calc(90% - 40px);
+	margin: 40px auto;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.c-top-btn-group > * {
+	margin-left: 15px;
+}
+
+.c-bot-btn-group > * {
+	margin: 0 8px;
+}
+
+.btn-light {
+	border: 1px solid #cacaca;
+	background-color: #fff;
+}
+
+td {
+	vertical-align: middle !important;
+
+	border: none 0px transparent; 
+}
+
+th {
+	vertical-align: middle;
+}
+
+tbody {
+	border-top: 1rem solid transparent;
+}
+
+.th-num {
+	text-align: left;
+	border: none 0px transparent;
+	border-top-left-radius: 10px; 
+	border-bottom-left-radius: 10px;
+	font-weight: normal;
+}
+
+td:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px; 
+}
+
+.no-margin {
+	margin: 0;
+}

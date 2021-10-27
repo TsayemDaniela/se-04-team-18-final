@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gamescreen.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body class="bg-nav">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="/">Beer Game</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            
+          </ul>
+        </ul>
+        <div>
+          <a class="nav-link" href="/student_logout">Logout</a>
+        </div>
+        </div>
+      </div>
+    </nav>
+<div class="main">
+    <h1 class="center-h">Player Screen</h1>
+    <p class="center-h">Here are 4 player screens ! </p>
+    <div class="container-fluid">
+      <br /><br />
+      <div class="filcontainer">
+        <div class="divris">
+          <h3 style="text-align: center;">Input Screen for Game {{ session['student_game_id'] }}</h3>
+          <p style="text-align: center;">For <b>Week {{ input_screen_1[0] }}</b></p>
+          <table id="table1" cellspacing="2px" >
+            <tr>
+              <td>
+                <table id="table1" cellspacing="2px">
+                  <tr>
+                    <td>Demand: </td>
+                    <td><div class=fancy name='demand'>{{ input_screen_1[1] }}</div></td>
+                  </tr>
+                  <tr>
+                    <td>On Backorder: </td>
+                    <td><div class=fancy name='backorder'>{{ input_screen_1[2] }}</div></td>
+                  </tr>
+                  <tr>
+                    <td>Total Requirement: </td>
+                    <td><div class=fancy name='Requirement'>{{ input_screen_1[3] }}</div></td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table id="table1" cellspacing="2px">
+                  <tr>
+                    <td>Beginning inventory: </td>
+                    <td><div class=fancy name='begin-inventory'>{{ input_screen_1[4] }}</div></td>
+                  </tr>
+                  <tr>
+                    <td>Incoming Shipment: </td>
+                    <td><div class=fancy name='incoming'>{{ input_screen_1[5] }}</div></td>
+                  </tr>
+                  <tr>
+                    <td>Total Available: </td>
+                    <td><div class=fancy name='total-available'>{{ input_screen_1[6] }}</div></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table id="table1" cellspacing="2px" >
+            <tr>
+              <td>Units shipped this week: </td>
+              <td><div class=fancy name='units-shipped'>{{ input_screen_1[7] }}</div></td>
+            </tr>
+            <tr>
+              <td>Ending Inventory: </td>
+              <td><div class=fancy name='ending-inventory'>{{ input_screen_1[8] }}</div></td>
+            </tr>
+            <tr>
+              <td>Enter the number to be purchased: </td>
+              <form action="{{ url_for('updateDB') }}" method="post">
+              <td><input type="number" name="quantity" id="postDatabox"></td>
+              <input type="hidden" name="game_id" value="{{session['student_game_id']}}">
+              <input type="submit" value="Submit">
+            </form>
+            </tr>
+          </table>
+
+        </div>
+        <div class="divris">
+          <h3 class="divris2" style="text-align: center;">Information for the last ten weeks</h3>
+          <h4><b>Note:</b> The two orders placed before week 1 are 4 and 4 units</h4>
+          <table id="table1" cellspacing="2px" >
+            <tr>
+              <td>
+                <table id="table1" cellspacing="2px">
+                  <tr>
+                    <td>Demand</td>
+                  </tr>
+                  {% for itemd in input_screen_2_order %}
+                  <tr>
+                    <td>{{itemd}}</td>   
+                  {% endfor %}
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table id="table1" cellspacing="2px">
+                  <tr>
+                    <td>Order </td>
+                  </tr>
+                  {% for itemd in input_screen_2_order %}
+                  <tr>
+                    <td>{{itemd}}</td>   
+                  {% endfor %}
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="divris">
+          <h3>Status of Other Supply Chain Members of Game 1</h3>
+          <p><i>The page will be refreshed every 15 seconds</i></p>
+          <br><br>
+          <p>When all the players have completed the order for the current week, the player will automatically receive a
+            link to
+            proceed to next week</p><br>
+          <pre style="text-align: left;"><b>Week 4</b>                                                               
+            <div>The page refreshes in <span id="time"></span> seconds!</div>
+       </pre>
+          <p>Factory: <b>Has not ordered</b></p>
+          <p>Distributor: <b>Has not ordered</b></p>
+          <p>Wholeseller: <b>Has not ordered</b></p>
+          <p>Retailer: <b>Has not ordered</b></p>
+        </div>
+  
+        <div class="divris">
+          <h3>Inventory and Order Status Plot </h3>
+          <pre>     <button>Demand Plot</button>      <button>Order Plot</button></pre>
+          <br><br>
+          <h3>Supply Chain Setting:</h3>
+          <p>Holding Cost: <b>{{games['holding_cost']}}</b><br>
+            Backorder Cost: <b>{{games['backlog_cost']}}</b><br>
+            Downstream Player : <span style="color: red;">Retailer</span><br>
+            Upstream Player : <span style="color: green;">Distributor</span><br>
+            Shipping Delay : <span style="color: red;"><b>2 weeks</b></span>(Distributor- >Wholeseller, Wholeseller-
+            >Retailer)
+            <br>
+            Information Delay : <span style="color: green;"><b>{{games['info_delay']}}</b></span>(Retailer- >Wholeseller, Wholeseller-
+            >Distributor)
+  
+  
+          </p>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+  </body>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+  
+  function startTimer(duration, display) {
+      var start = Date.now(),
+          diff,
+          minutes,
+          seconds;
+      function timer() {
+          diff = duration - (((Date.now() - start) / 1000) | 0);
+          seconds = (diff % 60) | 0;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          display.textContent = seconds; 
+  
+          if (diff <= 0) {
+              start = Date.now() + 1000;
+          }
+          if (seconds < 1) {
+            window.location.reload(true); 
+          }
+      };
+      timer();
+      setInterval(timer, 100);
+  }
+  
+  window.onload = function () {
+      var interval = 15
+          display = document.querySelector('#time');
+      startTimer(interval, display);
+
+
+      const URL = "/game_screen/{{ session['student_game_id'] }}";
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', URL);
+      xhr.send();
+  };
+  
+  </script>
+
+  </html>

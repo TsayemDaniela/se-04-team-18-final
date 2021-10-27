@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose roles</title>
+    
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body class="bg-nav">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Beer Game</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            
+          </ul>
+          <div>
+            <a class="nav-link" href="/student_logout">Logout</a>
+          </div>
+        </div>
+      </div>
+  </nav>
+<div class="main">
+    <h3>Please choose a role</h3>
+    <div class="c-btn-group mt-15" id="role">
+        <a href="/student_dashboard" class="btn btn-primary">Factory</a>
+    </div>
+</div>
+</body>
+<script>
+  var i;
+  var distributor = true;
+  var wholesaler = true;
+  const role = document.getElementById('role');
+  const roleItem = role.children[0];
+  const roleCopy1 = roleItem.cloneNode();
+  const roleCopy2 = roleItem.cloneNode();
+  const roleCopy3 = roleItem.cloneNode();
+  if (distributor === true){
+      role.appendChild(roleCopy1).innerHTML = "Distributor";
+  }
+  if (wholesaler === true){
+      role.appendChild(roleCopy2).innerHTML = "Wholesaler";
+  }
+  role.appendChild(roleCopy3).innerHTML = "Retailer";
+
+</script>
+</html>
